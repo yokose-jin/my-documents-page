@@ -20,7 +20,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      # GitHubのリポジトリを取得
+      # リポジトリを取得
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -28,7 +28,7 @@ jobs:
       - name: Setup Haskell
         uses: haskell-actions/setup@v2
         with:
-          ghc-version: '9.6'
+          ghc-version: '9.4.8'
           cabal-version: '3.10'
 
       # Cabalパッケージを更新
@@ -39,17 +39,18 @@ jobs:
       - name: Cabal build
         run: cabal build
 
-      # プログラムを実行してHTMLを生成
+      # HTMLを生成
       - name: Cabal run
         run: cabal run
 
-      # GitHub Pages用のディレクトリを準備
+      # GitHub Pages用ファイルを準備
       - name: Prepare Pages
         run: |
           mkdir -p dist
           cp index.html dist/
+          cp -r docs dist/
 
-      # GitHub Pagesへアップロード
+      # Pages用アーティファクトをアップロード
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
