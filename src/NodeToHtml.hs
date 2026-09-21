@@ -1,43 +1,55 @@
 module NodeToHtml where
 
 import NodeTypes
-import System.FilePath (makeRelative)
+import System.FilePath (makeRelative, splitDirectories)
 
 docs :: String
 docs = "docs"
 
 type Html = String
 
+depth :: FilePath -> Int
+depth = length . splitDirectories
+
 pageTitle :: String
 pageTitle = "書類"
 
 htmlNode :: Node -> Html
 htmlNode (Directory name path children) =
-  if makeRelative docs path == "."
-    then
+  case depth path of
+    1 ->
       unlines
-        [ "<ul>",
+        [ "    <ul class=depth0>",
           concatMap htmlNode children,
-          "</ul>"
+          "    </ul>"
         ]
-    else
+    2 ->
       unlines
-        [ "<li>",
+        [ "    <li class='depth1'>",
           name,
-          "<ul>",
+          "        <ul>",
           concatMap htmlNode children,
-          "</ul>",
-          "</li>"
+          "        </ul>",
+          "    </li>"
+        ]
+    _ ->
+      unlines
+        [ "    <li>",
+          name,
+          "        <ul>",
+          concatMap htmlNode children,
+          "        </ul>",
+          "    </li>"
         ]
 htmlNode (File name path) =
   unlines
-    [ "<li>",
-      "<a href=",
+    [ "    <li>",
+      "        <a href=",
       docs ++ "/" ++ makeRelative docs path,
       ">",
       name,
-      "</a>",
-      "</li>"
+      "        </a>",
+      "    </li>"
     ]
 
 nodeToHtml :: Node -> Html
@@ -52,15 +64,23 @@ nodeToHtml tree =
         ++ pageTitle
         ++ "</title>",
       "    <style>",
+      -- "@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');",
+      "        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');",
       "        body {",
       "            max-width: 900px;",
-      "            margin: 40px auto;",
+      "            margin: auto;",
       "            padding: 0 20px;",
-      --   "            font-family: sans-serif;",
-      "            line-height: 1.7;",
+      "            line-height: 1.5;",
+      "            background-color: #fdfdfd;",
+      "            font-family: Shippori Mincho",
       "        }",
-      "        ul {",
-      "            padding-left: 30px;",
+      "        .depth0 {",
+      "            padding-top: 10px;",
+      "            padding-bottom: 10px;",
+      "        }",
+      "        .depth1 {",
+      "            padding-top: 10px;",
+      "            padding-bottom: 10px;",
       "        }",
       "        a {",
       "            text-decoration: none;",
@@ -68,11 +88,19 @@ nodeToHtml tree =
       "        a:hover {",
       "            text-decoration: underline;",
       "        }",
+      "        .title {",
+      "            text-align: center",
+      "        }",
+      "        .mainpart {",
+      "            background-color: white;",
+      "            box-shadow: 0 0 8px rgb(235, 235, 235);",
+      "         }",
       "    </style>",
       "</head>",
       "<body>",
-      "    <h1>" ++ pageTitle ++ "</h1>",
+      "    <div class='mainpart'>",
       htmlNode tree,
+      "    </div>",
       "</body>",
       "</html>"
     ]
