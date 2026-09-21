@@ -33,7 +33,7 @@ htmlNode (File name path) =
   unlines
     [ "<li>",
       "<a href=",
-      docs ++ makeRelative docs path,
+      docs ++ "/" ++ makeRelative docs path,
       ">",
       name,
       "</a>",
