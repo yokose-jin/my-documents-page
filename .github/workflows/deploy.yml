@@ -46,7 +46,7 @@ jobs:
           cp index.html dist/index.html
           cp styles.css dist/styles.css
           rsync -a --exclude='.DS_Store' docs/ dist/docs/
-          rsync -a --exclude='.DS_Store' logos/ dist/logos/
+          rsync -a --exclude='.DS_Store' logo/ dist/logo/
           touch dist/.nojekyll
 
       - name: Upload Pages artifact
