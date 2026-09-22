@@ -23,10 +23,6 @@ body {
     padding-top: 10px;
 }
 
-.gitLogo {
-    vertical-align: -8px;
-}
-
 .gitLink {
     text-decoration: none;
     color: rgb(85, 60, 105);
