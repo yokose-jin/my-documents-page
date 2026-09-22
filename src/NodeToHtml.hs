@@ -44,7 +44,7 @@ htmlNode (Directory name path children) =
 htmlNode (File name path) =
   unlines
     [ "    <li>",
-      "        <a href=",
+      "        <a class='fileLink' href=",
       docs ++ "/" ++ makeRelative docs path,
       ">",
       name,
@@ -66,6 +66,10 @@ nodeToHtml tree =
         ++ "</title>",
       "</head>",
       "<body>",
+      "    <div class='contact'>",
+      "<img class='gitLogo' src='./logo/GitHub_Invertocat_Black_Clearspace.svg' width='30px' height='30px'></img>",
+      "<a class='gitLink' href='https://github.com/yokose-jin' target='_blank'>GitHub</a>",
+      "</div>",
       "    <div class='mainpart'>",
       htmlNode tree,
       "    </div>",

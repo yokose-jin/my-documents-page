@@ -19,13 +19,31 @@ body {
     padding-bottom: 10px;
 }
 
-a {
+.contact {
+    padding-top: 10px;
+}
+
+.gitLogo {
+    vertical-align: -8px;
+}
+
+.gitLink {
+    text-decoration: none;
+    color: rgb(85, 60, 105);
+    text-shadow: 0 0 1px rgb(189, 188, 188);
+}
+
+.gitLink:hover {
+    text-decoration: underline;
+}
+
+.fileLink {
     text-decoration: none;
     color: rgb(237, 69, 139);
     text-shadow: 0 0 1px rgb(225, 225, 225);
 }
 
-a:hover {
+.fileLink:hover {
     text-decoration: underline;
 }
 
