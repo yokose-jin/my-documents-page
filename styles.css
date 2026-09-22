@@ -21,12 +21,18 @@ body {
 
 .contact {
     padding-top: 10px;
+    margin-bottom: -10px;
 }
 
 .gitLink {
     text-decoration: none;
     color: rgb(85, 60, 105);
     text-shadow: 0 0 1px rgb(189, 188, 188);
+}
+
+.gitLogo {
+    width: 30px;
+    height: 30px;
 }
 
 .gitLink:hover {
