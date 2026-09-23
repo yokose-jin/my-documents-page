@@ -46,6 +46,7 @@ body {
 }
 .modDate {
     font-size: 10px;
+    color: red;
     text-shadow: 0 0 8px rgb(200, 200, 200);
 }
 
