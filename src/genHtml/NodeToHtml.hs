@@ -55,7 +55,7 @@ htmlNode (File name path modDate) =
     ]
   where
     dateSpan :: Maybe String -> String
-    dateSpan Nothing = "Nothing"
+    dateSpan Nothing = ""
     dateSpan (Just s) = "<span class='modDate'> 最終更新日:" ++ makeDate s ++ " </span>"
 
 nodeToHtml :: Node -> Html
