@@ -3,6 +3,7 @@ module DirToNode where
 import Control.Monad (forM)
 import Data.List (sort)
 import Data.Maybe (catMaybes)
+import GetPdfInfo (getPdfModDate)
 import NodeTypes
 import System.Directory (doesDirectoryExist, doesFileExist, listDirectory)
 import System.FilePath (takeExtension, takeFileName, (</>))
@@ -18,6 +19,8 @@ dirToNode path = do
       else do
         isFile <- doesFileExist fullPath
         if isFile && takeExtension entry == ".pdf"
-          then return $ Just (File entry fullPath)
+          then do
+            modDate <- getPdfModDate fullPath
+            return $ Just (File entry fullPath modDate)
           else return Nothing
   return $ Directory (takeFileName path) path children

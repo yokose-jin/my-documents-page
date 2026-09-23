@@ -44,6 +44,10 @@ body {
     color: rgb(237, 69, 139);
     text-shadow: 0 0 1px rgb(225, 225, 225);
 }
+.modDate {
+    font-size: 9px;
+    text-shadow: 0 0 8px rgb(200, 200, 200);
+}
 
 .fileLink:hover {
     text-decoration: underline;

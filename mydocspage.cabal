@@ -18,12 +18,16 @@ executable mydocspage
     build-depends:
         base ^>=4.17.2.1,
         directory,
-        filepath
+        filepath,
+        containers,
+        process
 
-    hs-source-dirs:   app, src
+    hs-source-dirs:   app, src/genHtml/, src/pdf/
     other-modules:
         DirToNode,
         NodeTypes,
-        NodeToHtml
+        NodeToHtml,
+        GetPdfInfo,
+        ExchangeDate
 
     default-language: Haskell2010

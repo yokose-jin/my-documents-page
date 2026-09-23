@@ -1,5 +1,6 @@
 module NodeToHtml where
 
+import ExchangeDate
 import NodeTypes
 import System.FilePath (makeRelative, splitDirectories)
 
@@ -41,7 +42,7 @@ htmlNode (Directory name path children) =
           "        </ul>",
           "    </li>"
         ]
-htmlNode (File name path) =
+htmlNode (File name path modDate) =
   unlines
     [ "    <li>",
       "        <a class='fileLink' href=",
@@ -49,8 +50,13 @@ htmlNode (File name path) =
       ">",
       name,
       "        </a>",
+      dateSpan modDate,
       "    </li>"
     ]
+  where
+    dateSpan :: Maybe String -> String
+    dateSpan Nothing = "Nothing"
+    dateSpan (Just s) = "<span class='modDate'> 最終更新日:" ++ makeDate s ++ " </span>"
 
 nodeToHtml :: Node -> Html
 nodeToHtml tree =
