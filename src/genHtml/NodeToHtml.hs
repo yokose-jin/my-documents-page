@@ -36,7 +36,9 @@ htmlNode (Directory name path children) =
     _ ->
       unlines
         [ "    <li>",
+          "<span class='nodetitle'>",
           name,
+          "</span>",
           "        <ul>",
           concatMap htmlNode children,
           "        </ul>",
@@ -48,7 +50,9 @@ htmlNode (File name path modDate subject) =
       "        <a class='fileLink' href=",
       docs ++ "/" ++ makeRelative docs path,
       ">",
+      "<span class='nodetitle'>",
       name,
+      "</span>",
       "        </a>",
       dateDiv modDate,
       subjectSpan subject,
@@ -56,8 +60,8 @@ htmlNode (File name path modDate subject) =
     ]
   where
     dateDiv :: ModDate -> Html
-    dateDiv Nothing = ""
-    dateDiv (Just s) = "<div class='modDate'>&mdash;最終更新日:" ++ makeDate s ++ "&mdash;</div>"
+    dateDiv Nothing = "<div class='modDate'>&mdash;最終更新日:</div>"
+    dateDiv (Just s) = "<div class='modDate'>&mdash;最終更新日:" ++ makeDate s ++ "</div>"
 
     subjectSpan :: Subject -> Html
     subjectSpan Nothing = ""

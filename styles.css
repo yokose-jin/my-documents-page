@@ -9,7 +9,15 @@ body {
     font-family: "Noto Serif JP";
     font-weight: 200;
 }
-
+/* .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 250,
+  'GRAD' 0,
+  'opsz' 24;
+  color:#4d4d4d;
+  text-shadow: 0 0 3px rgb(203, 203, 203);
+} */
 .depth0 {
     padding: 15px;
 }
@@ -29,14 +37,19 @@ body {
 .gitLink {
     text-decoration: none;
     color: rgb(85, 60, 105);
-    text-shadow: 0 0 1px rgb(189, 188, 188);
+    text-shadow: 0 0 1px rgb(212, 212, 212);
 }
 
 .gitLogo {
     width: 30px;
     height: 30px;
 }
-
+::marker {
+    font-size:9px;
+}
+ul {
+    list-style-type:circle;
+}
 .gitLink:hover {
     text-decoration: underline;
 }
@@ -48,6 +61,7 @@ body {
 }
 .modDate {
     font-size: 9px;
+    /* padding-left:25px; */
     text-shadow: 0 0 8px rgb(223, 223, 223);
 }
 
@@ -69,4 +83,11 @@ body {
     font-size: 12px;
     width: 80%;
     overflow-wrap: anywhere;
+    /* padding-left:25px; */
+}
+/* .fileLogo {
+    vertical-align: -6px;
+} */
+.nodetitle {
+    vertical-align: -2px;
 }
