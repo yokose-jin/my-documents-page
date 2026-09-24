@@ -50,18 +50,18 @@ htmlNode (File name path modDate subject) =
       ">",
       name,
       "        </a>",
-      dateSpan modDate,
-      subjectDiv subject,
+      dateDiv modDate,
+      subjectSpan subject,
       "    </li>"
     ]
   where
-    dateSpan :: ModDate -> Html
-    dateSpan Nothing = ""
-    dateSpan (Just s) = "<span class='modDate'> 最終更新日:" ++ makeDate s ++ " </span>"
+    dateDiv :: ModDate -> Html
+    dateDiv Nothing = ""
+    dateDiv (Just s) = "<div class='modDate'>&mdash;最終更新日:" ++ makeDate s ++ "&mdash;</div>"
 
-    subjectDiv :: Subject -> Html
-    subjectDiv Nothing = ""
-    subjectDiv (Just s) = "<div class='subject'>" ++ s ++ " </div>"
+    subjectSpan :: Subject -> Html
+    subjectSpan Nothing = ""
+    subjectSpan (Just s) = "<div class='subject'>概要：<span>" ++ s ++ " </span></div>"
 
 nodeToHtml :: Node -> Html
 nodeToHtml tree =

@@ -3,7 +3,7 @@
 body {
     max-width: 900px;
     margin: auto;
-    padding: 0 20px;
+    padding:10px;
     line-height: 1.5;
     background-color: #fdfdfd;
     font-family: "Noto Serif JP";
@@ -11,12 +11,13 @@ body {
 }
 
 .depth0 {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 15px;
 }
 
 .depth1 {
     padding-top: 10px;
+    padding-left: 0px;
+    list-style: none;
     padding-bottom: 10px;
 }
 
@@ -61,8 +62,11 @@ body {
 .mainpart {
     background-color: white;
     box-shadow: 0 0 8px rgb(235, 235, 235);
+    border-radius: 10px;
 }
 .subject {
     color: #434343;
     font-size: 12px;
+    width: 80%;
+    overflow-wrap: anywhere;
 }
