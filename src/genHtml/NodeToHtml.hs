@@ -27,6 +27,7 @@ htmlNode (Directory name path children) =
     2 ->
       unlines
         [ "    <li class='depth1'>",
+          "&mdash;",
           name,
           "        <ul>",
           concatMap htmlNode children,
@@ -37,6 +38,7 @@ htmlNode (Directory name path children) =
       unlines
         [ "    <li>",
           "<span class='nodetitle'>",
+          "&mdash;",
           name,
           "</span>",
           "        <ul>",
