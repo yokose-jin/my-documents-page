@@ -1,5 +1,6 @@
 module GetPdfInfo
   ( getPdfModDate,
+    getPdfSubject,
   )
 where
 
@@ -7,6 +8,8 @@ import Data.Char (isSpace)
 import Data.List (dropWhileEnd)
 import System.FilePath (takeExtension)
 import System.Process (readProcess)
+
+type Info = String
 
 trim :: String -> String
 trim = dropWhileEnd isSpace . dropWhile isSpace
@@ -22,17 +25,17 @@ parseLines input =
   [ kv | line <- lines input, not (null (trim line)), Just kv <- [splitOnce line]
   ]
 
-getPdfModDate :: FilePath -> IO (Maybe String)
-getPdfModDate path =
+getPdfInfo :: FilePath -> Info -> IO (Maybe String)
+getPdfInfo path info =
   if takeExtension path == ".pdf"
     then do
       input <- readProcess "pdfinfo" [path] []
       let parseInput = parseLines input
-      return $ lookup "ModDate" parseInput
+      return $ lookup info parseInput
     else return Nothing
 
--- main :: IO ()
--- main = do
---   input <- readProcess "pdfinfo" ["main.pdf"] []
---   let result = parseLines input
---   print result
+getPdfModDate :: FilePath -> IO (Maybe String)
+getPdfModDate path = getPdfInfo path "ModDate"
+
+getPdfSubject :: FilePath -> IO (Maybe String)
+getPdfSubject path = getPdfInfo path "Subject"

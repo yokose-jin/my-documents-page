@@ -42,7 +42,7 @@ htmlNode (Directory name path children) =
           "        </ul>",
           "    </li>"
         ]
-htmlNode (File name path modDate) =
+htmlNode (File name path modDate subject) =
   unlines
     [ "    <li>",
       "        <a class='fileLink' href=",
@@ -51,12 +51,17 @@ htmlNode (File name path modDate) =
       name,
       "        </a>",
       dateSpan modDate,
+      subjectDiv subject,
       "    </li>"
     ]
   where
-    dateSpan :: Maybe String -> String
+    dateSpan :: ModDate -> Html
     dateSpan Nothing = ""
     dateSpan (Just s) = "<span class='modDate'> 最終更新日:" ++ makeDate s ++ " </span>"
+
+    subjectDiv :: Subject -> Html
+    subjectDiv Nothing = ""
+    subjectDiv (Just s) = "<div class='subject'>" ++ s ++ " </div>"
 
 nodeToHtml :: Node -> Html
 nodeToHtml tree =

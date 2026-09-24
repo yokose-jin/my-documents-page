@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
 body {
     max-width: 900px;
     margin: auto;
     padding: 0 20px;
     line-height: 1.5;
     background-color: #fdfdfd;
-    font-family: Shippori Mincho
+    font-family: "Noto Serif JP";
+    font-weight: 200;
 }
 
 .depth0 {
@@ -60,4 +61,8 @@ body {
 .mainpart {
     background-color: white;
     box-shadow: 0 0 8px rgb(235, 235, 235);
+}
+.subject {
+    color: #434343;
+    font-size: 12px;
 }
