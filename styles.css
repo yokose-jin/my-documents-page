@@ -56,11 +56,16 @@ ul {
 }
 
 .fileLink {
+    /* list-style-type:circle; */
     text-decoration: none;
     color: rgb(237, 69, 139);
     text-shadow: 0 0 1px rgb(225, 225, 225);
     transition-duration: 300ms;
 }
+.fileLink:visited {
+    color: rgb(237, 69, 139);
+}
+
 .modDate {
     font-size: 9px;
     /* padding-left:25px; */
@@ -94,5 +99,9 @@ ul {
     vertical-align: -6px;
 } */
 .nodetitle {
+    /* list-style-type: none; */
     vertical-align: -2px;
+}
+.directory {
+    list-style: none;
 }

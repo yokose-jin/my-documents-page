@@ -20,13 +20,13 @@ htmlNode (Directory name path children) =
   case depth path of
     1 ->
       unlines
-        [ "    <ul class='depth0'>",
+        [ "    <ul class='directory depth0 nodetitle'>",
           concatMap htmlNode children,
           "    </ul>"
         ]
     2 ->
       unlines
-        [ "    <li class='depth1'>",
+        [ "    <li class='directory depth1 nodetitle'>",
           "&mdash;",
           name,
           "        <ul>",
@@ -36,12 +36,12 @@ htmlNode (Directory name path children) =
         ]
     _ ->
       unlines
-        [ "    <li>",
-          "<span class='nodetitle'>",
-          "&mdash;",
+        [ "    <li class='directory'>",
+          "         <span class='nodetitle'>",
+          "                &mdash;",
           name,
-          "</span>",
-          "        <ul>",
+          "         </span>",
+          "         <ul>",
           concatMap htmlNode children,
           "        </ul>",
           "    </li>"
