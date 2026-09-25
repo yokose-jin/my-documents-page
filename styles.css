@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
+
 body {
     max-width: 900px;
     margin: auto;
-    padding:15px;
+    padding: 15px;
     line-height: 1.5;
     background-color: #fdfdfd;
     /* background-color: #fdfdfd; */
     font-family: "Noto Serif JP";
     font-weight: 200;
 }
+
 /* .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -45,12 +47,16 @@ body {
     width: 30px;
     height: 30px;
 }
+
 ::marker {
-    font-size:9px;
+    font-size: 9px;
+    color: #b6b6b6;
 }
+
 ul {
-    list-style-type:circle;
+    list-style-type: circle;
 }
+
 .gitLink:hover {
     text-decoration: underline;
 }
@@ -62,6 +68,7 @@ ul {
     text-shadow: 0 0 1px rgb(225, 225, 225);
     transition-duration: 300ms;
 }
+
 .fileLink:visited {
     color: rgb(237, 69, 139);
 }
@@ -88,6 +95,7 @@ ul {
     border-radius: 10px;
     padding-left: 15px;
 }
+
 .subject {
     color: #434343;
     font-size: 12px;
@@ -95,6 +103,7 @@ ul {
     overflow-wrap: anywhere;
     /* padding-left:25px; */
 }
+
 /* .fileLogo {
     vertical-align: -6px;
 } */
@@ -102,6 +111,11 @@ ul {
     /* list-style-type: none; */
     vertical-align: -2px;
 }
+
 .directory {
     list-style: none;
+}
+
+.directoryDash {
+    color: #b6b6b6;
 }
