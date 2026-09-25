@@ -51,7 +51,7 @@ htmlNode (File name path modDate subject) =
     [ "    <li>",
       "        <a class='fileLink' href=",
       docs ++ "/" ++ makeRelative docs path,
-      ">",
+      "target='_blank'>",
       "<span class='nodetitle'>",
       name,
       "</span>",
