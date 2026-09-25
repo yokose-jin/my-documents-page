@@ -50,7 +50,7 @@ body {
 
 ::marker {
     font-size: 9px;
-    color: #b6b6b6;
+    color: #686868;
 }
 
 ul {
@@ -117,5 +117,5 @@ ul {
 }
 
 .directoryDash {
-    color: #b6b6b6;
+    color: #686868;
 }
