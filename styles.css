@@ -63,7 +63,7 @@ ul {
 
 .fileLink {
     /* list-style-type:circle; */
-    text-shadow: 0 0 4px rgb(215, 190, 201);
+    text-shadow: 0 0 3px rgb(215, 190, 201);
     color: rgb(215, 95, 145);
     /* text-shadow: 0 0 1px rgb(225, 225, 225); */
 }
