@@ -6,7 +6,7 @@ import Data.Maybe (catMaybes)
 import GetPdfInfo (getPdfModDate, getPdfSubject)
 import NodeTypes
 import System.Directory (doesDirectoryExist, doesFileExist, listDirectory)
-import System.FilePath (takeExtension, takeFileName, (</>))
+import System.FilePath (takeBaseName, takeExtension, takeFileName, (</>))
 
 dirToNode :: FilePath -> IO Node
 dirToNode path = do
@@ -22,6 +22,6 @@ dirToNode path = do
           then do
             modDate <- getPdfModDate fullPath
             subject <- getPdfSubject fullPath
-            return $ Just (File entry fullPath modDate subject)
+            return $ Just (File (takeBaseName entry) fullPath modDate subject)
           else return Nothing
   return $ Directory (takeFileName path) path children

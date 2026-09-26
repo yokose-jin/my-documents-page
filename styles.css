@@ -63,10 +63,9 @@ ul {
 
 .fileLink {
     /* list-style-type:circle; */
-
+    text-shadow: 0 0 4px rgb(215, 190, 201);
     color: rgb(215, 95, 145);
-    text-shadow: 0 0 1px rgb(225, 225, 225);
-    transition-duration: 300ms;
+    /* text-shadow: 0 0 1px rgb(225, 225, 225); */
 }
 
 .fileLink:visited {
@@ -77,12 +76,6 @@ ul {
     font-size: 9px;
     /* padding-left:25px; */
     text-shadow: 0 0 8px rgb(223, 223, 223);
-}
-
-.fileLink:hover {
-    text-shadow: 0 0 4px rgb(228, 195, 210);
-    transition-duration: 300ms;
-    /* text-decoration: underline; */
 }
 
 .title {
