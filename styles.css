@@ -7,10 +7,11 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     line-height: 1.5;
-    background-color: #fbfaf8;
+    background-color: #faf6f1;
+    /* background-color: #fbfaf8; */
     font-family: "Noto Serif JP";
     font-weight: 200;
-    color: #404040;
+    color: #4c4c4c;
 }
 
 a {
@@ -61,13 +62,13 @@ ul {
 }
 
 .fileLink {
-    text-shadow: 0 0 3px rgb(215, 190, 201);
-    color: rgb(215, 95, 145);
+    text-shadow: 0 0 3px rgb(224, 208, 216);
+    color: rgb(223, 126, 166);
 }
 
-.fileLink:visited {
-    color: rgb(215, 95, 145);
-}
+/* .fileLink:visited {
+    color: rgb(215, 111, 155);
+} */
 
 .modDate {
     font-size: 9px;
@@ -79,8 +80,10 @@ ul {
 }
 
 .mainpart {
-    background-color: #fcfbfa;
-    box-shadow: 0 0 6px rgb(224, 224, 224);
+    /* background-color: #faf8f7; */
+    background-color: #faf5f2;
+    /* background-color: #faf7f4; */
+    box-shadow: 0 0 6px rgb(209, 209, 208);
     border-radius: 10px;
     padding-left: 15px;
 }
